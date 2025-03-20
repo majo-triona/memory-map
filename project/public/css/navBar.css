@@ -1,0 +1,175 @@
+:root /* navbar - center, simple css */
+{
+    --primary-color: #00337A;
+    --text-color: #1f2937;
+    --bg-color: #ffffff;
+    --hover-color: #4798AD;
+    --active-color: #00234F;
+}
+
+* 
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, sans-serif;
+}
+
+body 
+{
+    background-color: #f9fafb;
+}
+
+.navbar 
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 32px;
+    background-color: var(--bg-color);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo 
+{
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.nav-links 
+{
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li 
+{
+    margin-left: 32px;
+}
+
+.nav-links a 
+{
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-links a:hover 
+{
+    color: var(--hover-color);
+}
+
+.nav-links a.active 
+{
+    color: var(--active-color);
+}
+
+.nav-links a::after 
+{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after 
+{
+    width: 100%;
+}
+
+.hamburger 
+{
+    display: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.hamburger span 
+{
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px 0;
+    background-color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) 
+{
+    .nav-links 
+    {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--bg-color);
+        box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s ease;
+        z-index: 1001;
+    }
+
+    .nav-links.active 
+    {
+        right: 0;
+    }
+
+    .nav-links li 
+    {
+        margin: 24px 0;
+    }
+
+    .hamburger 
+    {
+        display: block;
+        z-index: 1002;
+    }
+
+    .hamburger.active span:nth-child(1) 
+    {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.active span:nth-child(2) 
+    {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) 
+    {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    .overlay 
+    {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+
+    .overlay.active 
+    {
+        display: block;
+    }
+}
