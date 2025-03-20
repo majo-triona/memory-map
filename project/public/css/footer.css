@@ -1,0 +1,31 @@
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height:15%;
+}
+
+.footer-content {
+    display: flex;
+    align-items: centerl;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.toHome {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
