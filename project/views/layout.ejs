@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Memory Track</title>
   <link rel="stylesheet" href="/css/style.css">
-
+  <base href="/"> <!--! Fix scriopt loading across all pages !-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
   <div id="threejs-background"></div>
@@ -16,6 +17,6 @@
     <%- body %>
   </main>
   <%- include('partials/footer.ejs') %>
-
+  <script src="js/three.js"></script>
 </body>
 </html>
